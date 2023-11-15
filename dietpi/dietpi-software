@@ -10101,7 +10101,7 @@ _EOF_
 		then
 			local reinstall=0
 			[[ -f '/mnt/dietpi_userdata/nzbget/nzbget.conf' ]] && reinstall=1
-			G_EXEC curl -sSfL 'https://nzbget.net/download/nzbget-latest-bin-linux.run' -o package.run
+			G_EXEC_OUTPUT=1 G_EXEC curl -fLo package.run 'https://nzbget.com/download/nzbget-latest-bin-linux.run'
 			G_EXEC mkdir -p /mnt/dietpi_userdata/nzbget
 			G_EXEC_OUTPUT=1 G_EXEC dash package.run --destdir /mnt/dietpi_userdata/nzbget
 			G_EXEC rm package.run
